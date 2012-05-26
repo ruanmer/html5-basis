@@ -1,0 +1,206 @@
+/* 	
+	Developed by Ruan Mer
+	http://ruanmer.com/ 
+*/
+/*---------------------------------------------------------------------------*/
+/* Reset */
+/*---------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { 
+    margin:0; 
+    padding:0; 
+    border:0; 
+    background:transparent;
+    font-size:100%;
+    outline:0;
+    vertical-align:baseline;
+}
+body {     
+    line-height:1;
+}
+h1, h2, h3, h4, h5, h6, b { 
+    font-weight:normal; 
+}
+ol, ul { 
+    list-style:none;
+}
+input, textarea, select, button {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    font:inherit;
+}
+blockquote, q {
+    quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+:focus {
+	outline:0;
+}
+p { 
+    word-wrap:break-word;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+th, td {
+    text-align:left;
+}
+td {
+    vertical-align:top;
+}
+label[for], button, input[type="button"], input[type="reset"], input[type="submit"] { 
+    cursor:pointer; 
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] { 
+    -webkit-appearance: button; 
+    *overflow: visible;
+}
+textarea { 
+    overflow:auto; 
+    resize:none;
+}
+input, select, textarea, button {
+    border:0;
+    background:none;
+}
+button[disabled], input[disabled] { 
+    cursor:default; 
+}
+
+/* HTML 5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+
+/*---------------------------------------------------------------------------*/
+/* Useful Classes */
+/*---------------------------------------------------------------------------*/
+.fleft {float:left!important}
+.fright {float:right!important}
+.clear {clear:both}
+.clearleft {clear:left}
+.clearright {clear:right}
+
+.clearfix:before, .clearfix:after {content:"";display:table;}
+.clearfix:after {clear:both;}
+.clearfix {*zoom:1;}
+
+.relative {position:relative}
+.static {position:static}
+
+.inline {display:inline}
+.none {display:none}
+.block {display:block}
+
+.textcenter {text-align:center!important}
+.textleft {text-align:left!important}
+.textright {text-align:right!important}
+
+.bold {font-weight:bold}
+.italic {font-style:italic}
+
+
+/*---------------------------------------------------------------------------*/
+/* Font & Color */
+/*---------------------------------------------------------------------------*/
+/* font-face */
+@font-face {
+    font-family:'Font Name';
+    src: url('fonts/font-filename.eot');
+    src: url('fonts/font-filename.eot?#iefix') format('embedded-opentype'),
+         url('fonts/font-filename.woff') format('woff'),
+         url('fonts/font-filename.ttf') format('truetype'),
+         url('fonts/font-filename.svg#MinhaFonte') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* default */
+html, body, td, input, textarea, select { font:16px Arial, sans-serif; color:#000; }
+
+/* link */
+a { color:#fff; text-decoration:none; }
+a:hover { text-decoration:none; }
+a:hover, a:active { outline:0; }
+
+
+/*---------------------------------------------------------------------------*/
+/* Main Structure */
+/*---------------------------------------------------------------------------*/
+body {}
+#container {}
+#header {}
+#main {}
+#footer {}
+
+
+/*---------------------------------------------------------------------------*/
+/* General */
+/*---------------------------------------------------------------------------*/ 
+/* default style for inputs */
+input[type=text] {}
+select {}
+textarea {}
+input[type=submit], button {}
+
+
+/*---------------------------------------------------------------------------*/
+/* Plugins */
+/*---------------------------------------------------------------------------*/ 
+/* 
+ * styled fields plugin ( plugins.js )
+ *
+ * remover se nao tiver usando campos personalizados
+ */
+.styled-field { position:relative; display:inline-block; }
+.styled-field-element { width:100%; height:100%; opacity:0; cursor:pointer; }
+.styled-field-label { position:absolute; top:0; left:0; width:100%; height:100%; }
+.styled-field-value { display:block; }
+
+.styled-field-select .styled-field-value { line-height:100%; }
+.styled-field-select select { display:block; background-color:#fff; }
+
+
+/*---------------------------------------------------------------------------*/
+/* Header & Footer */
+/*---------------------------------------------------------------------------*/
+/* brand */
+#brand, #brand a {}
+#brand {}
+#brand a { display:block; background:url('../img/brand-logo.png') no-repeat; text-indent:-9999px; line-height:0; }
+
+/* menu */
+#menu {}
+#menu ul {}
+#menu li {}
+#menu li a {}
+
+
+/*---------------------------------------------------------------------------*/
+/* Main */
+/*---------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------------*/
+/* Home */
+/*---------------------------------------------------------------------------*/
+
