@@ -1,3 +1,3 @@
-# [HTML5 Basis]
+# HTML5 Basis
 
 A basis to start coding.
