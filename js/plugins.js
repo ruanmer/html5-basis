@@ -37,14 +37,15 @@
 		}
 		
 		return this.each(function(){
-			var value 	= getValue( this );
-			var id		= ( this.id ) ? this.id : 'styled-field-' + ++styledFields;			
-			var html 	=	'<'+ options.wrapper +' class="styled-field styled-field-'+ ( ( this.type == 'select-one' ) ? 'select' : this.type ) +'">' +
-							  '<label class="styled-field-label" for="'+ id +'" />' + 
-						  	'</'+ options.wrapper +'>';
+			var value     = getValue( this );
+			var id        = this.id;
+			var label_for = ( id ) ? id : 'styled-field-' + ++styled_fields_count;			
+			var html      = '<'+ options.wrapper +''+ ( ( id ) ? ' id="styled-'+ id +'"' : '' ) +' class="styled-field styled-field-'+ ( ( this.type == 'select-one' ) ? 'select' : this.type ) +'">' +
+								'<label class ="styled-field-label" for="'+ label_for +'" />' + 
+							'</'+ options.wrapper +'>';
 					
 			// set id
-			this.id = id;
+			this.id = label_for;
 			
 			// build struture
 			$(this)
