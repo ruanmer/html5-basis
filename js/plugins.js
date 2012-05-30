@@ -5,10 +5,12 @@
 	 * @usage if ( $(this).exists() )
 	 *
 	 */
-	$.fn.exists = function(){return $(this).length>0;}
+	$.fn.exists = function() { return $(this).length>0; }
 	
 
 	/*
+	 * styledFields - ver 0.1.1
+	 *
 	 * Para customizar elementos de form
 	 * 
 	 * @support [select, file, radio, checkbox]
@@ -61,5 +63,49 @@
 	            $(this).parent().prev('span').text(value);  
 	        });  
 		});		
+	};
+
+	/*
+	 * customLightbox - ver 0.0.1
+	 */
+	$.fn.customLightbox = function( options ) {
+		var options = jQuery.extend({
+			close: 'Close',
+			content_html: null
+		}, options);	
+
+		var html_overlay      = '<div id="clightbox-overlay"></div>';		
+		var html_clightbox    = '<div id="clightbox">' + 
+									'<div id="clightbox-container">' +
+										'<div id="clightbox-close">'+ options.close +'</div>' +
+										'<div id="clightbox-content"></div>' +
+									'</div>' +
+								'</div>';	
+
+		/* append */
+		$('body').prepend( html_overlay + html_clightbox );
+
+		/* close and remove */
+		$('#clightbox-overlay, #clightbox-close').live('click', function() {
+		    
+			$('#clightbox, #clightbox-overlay').fadeOut( function() {
+				$('#clightbox-content').empty();
+			});
+
+		});
+		
+		/* this */
+		$(this).on('click', function( event ){
+			var content_html = ''; 
+			var self         = $(this);
+
+		    content_html = options.content_html( self );
+
+		    $('#clightbox-content').append( content_html );
+	    
+		    $('#clightbox, #clightbox-overlay').fadeIn();
+
+		    return false;
+		});
 	};
 })(jQuery);
