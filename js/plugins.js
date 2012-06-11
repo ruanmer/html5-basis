@@ -65,8 +65,9 @@
 		});		
 	};
 
+
 	/*
-	 * customLightbox - ver 0.0.1
+	 * customLightbox - ver 0.0.1 ALPHA
 	 */
 	$.fn.customLightbox = function( options ) {
 		var options = jQuery.extend({
@@ -107,5 +108,63 @@
 
 		    return false;
 		});
+	};
+
+
+	/*
+	 * emulatePlaceholder - ver 0.0.1 ALPHA
+	 */
+	$.fn.emulatePlaceholder = function( options ) {	
+		var options = jQuery.extend({
+			wrapper: 'span'	
+		}, options);
+
+	    var setLabelOpacity = function(e){        
+	        if ( this.value == false )
+	            $(this).siblings('label').css('opacity', e.data.opacity);
+	    };
+	    
+	    return this.each(function(){
+	    	if ( $(this).parent('.e-placeholder') ) {
+	    		$(this)
+	                .on('focus', { opacity: 0.5 }, setLabelOpacity)
+	                .on('keydown', { opacity: 0 }, setLabelOpacity)
+	                .on('blur', { opacity: 1 }, setLabelOpacity)	               	
+	        		.prev('label').css('opacity', 1);
+	    	};
+
+			var top_value      = parseInt( $(this).css('paddingTop') , 10 ) + parseInt( $(this).css('borderTopWidth'), 10 );
+			var left_value     = parseInt( $(this).css('paddingLeft') , 10 ) + parseInt( $(this).css('borderLeftWidth'), 10 );
+			var fontsize_value = $(this).css('fontSize');
+			var color_value    = $(this).css('color');
+
+	    	$('.e-placeholder')
+	    		.css({ 'position' : 'relative', 'display' : 'inline-block' })
+	    		.find('label')
+	    			.css({ 'position' : 'absolute', 'top' : top_value, 'left' : left_value, 'fontSize' : fontsize_value, 'color' : color_value })
+	    			.on('click', function() {
+	    				$(this).next('input:text').trigger('focus');
+	    			});
+	    });
+	};
+
+	/* 
+	 * animateAuto 
+	 */
+    $.fn.animateAuto = function(prop, speed, callback){
+	    var elem, height, width;
+	    return this.each(function(i, el){
+	        el = jQuery(el), elem = el.clone().css({'height':'auto','width':'auto'}).appendTo('body');
+	        height = elem.css('height'),
+	        width = elem.css('width'),
+	        elem.remove();
+
+	        if(prop === 'height')
+	            el.animate({'height':height}, speed, callback);
+	        else if(prop === 'width')
+	            el.animate({'width':width}, speed, callback);
+	        else if(prop === 'both')
+	            el.animate({'width':width,'height':height}, speed, callback);
+	    });
 	};
 })(jQuery);
