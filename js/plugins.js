@@ -13,7 +13,7 @@
 	 *
 	 * Para customizar elementos de form
 	 * 
-	 * @support [select, file, radio, checkbox]
+	 * @support [select, file]
 	 *
 	 * @ex: 	<span class="styled-field styled-field-select">
 	 * 				<span class="styled-field-value">Selecione</span>
@@ -28,7 +28,7 @@
 			wrapper: 'span'	
 		}, options);	
 		
-		var styledFields = 0;
+		var styled_fields_count = 0;
 				
 		var getValue = function( self ) {
 			return 	( self.type == 'file' ) 
@@ -109,30 +109,30 @@
 		    return false;
 		});
 	};
-
+	
 
 	/*
-	 * emulatePlaceholder - ver 0.0.1 ALPHA
+	 * emulatePlaceholder - ver 0.0.2
 	 */
 	$.fn.emulatePlaceholder = function( options ) {	
 		var options = jQuery.extend({
 			wrapper: 'span'	
 		}, options);
 
+		/* set label opacity */
 	    var setLabelOpacity = function(e){        
 	        if ( this.value == false )
 	            $(this).siblings('label').css('opacity', e.data.opacity);
 	    };
-	    
+	    	
+	    /* 	
+	     *	@return input or textarea
+ 	     */
 	    return this.each(function(){
-	    	if ( $(this).parent('.e-placeholder') ) {
-	    		$(this)
-	                .on('focus', { opacity: 0.5 }, setLabelOpacity)
-	                .on('keydown', { opacity: 0 }, setLabelOpacity)
-	                .on('blur', { opacity: 1 }, setLabelOpacity)	               	
-	        		.prev('label').css('opacity', 1);
-	    	};
+	    	/* wrap elements input and label */
+	    	$(this).prev('label').andSelf().wrapAll('<'+ options.wrapper +' class="e-placeholder" />');
 
+	    	/* set styles */
 			var top_value      = parseInt( $(this).css('paddingTop') , 10 ) + parseInt( $(this).css('borderTopWidth'), 10 );
 			var left_value     = parseInt( $(this).css('paddingLeft') , 10 ) + parseInt( $(this).css('borderLeftWidth'), 10 );
 			var fontsize_value = $(this).css('fontSize');
@@ -145,6 +145,14 @@
 	    			.on('click', function() {
 	    				$(this).next('input:text').trigger('focus');
 	    			});
+	    	
+	    	/* on action */
+    		$(this)
+                .on('load', { opacity: 0 }, setLabelOpacity)
+                .on('focus', { opacity: 0.5 }, setLabelOpacity)
+                .on('keydown', { opacity: 0 }, setLabelOpacity)
+                .on('blur', { opacity: 1 }, setLabelOpacity)	               	
+        		.prev('label').css('opacity', 1);
 	    });
 	};
 
