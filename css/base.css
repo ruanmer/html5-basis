@@ -157,11 +157,11 @@ body {}
 /* General */
 /*---------------------------------------------------------------------------*/ 
 /* default style for inputs */
-input[type=text] {}
-input[type=radio], input[type=checkbox] { vertical-align:middle; }
+input[type="text"] {}
+input[type="radio"], input[type="checkbox"] { vertical-align:middle; }
 select {}
 textarea {}
-input[type=submit], button {}
+input[type="submit"], button {}
 
 
 /*---------------------------------------------------------------------------*/
