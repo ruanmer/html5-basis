@@ -29,17 +29,11 @@ time, mark, audio, video {
 body {     
     line-height:1;
 }
+a:hover, a:active, a:focus {
+    outline:0;
+}
 h1, h2, h3, h4, h5, h6, b { 
     font-weight:normal; 
-}
-ol, ul { 
-    list-style:none;
-}
-input, textarea, select, button {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    font:inherit;
 }
 blockquote, q {
     quotes:none;
@@ -49,21 +43,47 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-:focus {
-	outline:0;
-}
 p { 
     word-wrap:break-word;
 }
+hr { 
+    clear:both; 
+    display:block; 
+    height:1px; 
+    margin:0; 
+    padding:0; 
+    border:0; 
+    border-bottom:1px solid #000; 
+}
+ol, ul { 
+    list-style:none;
+}
 table {
+    width:100%;
 	border-collapse:collapse;
 	border-spacing:0;
 }
 th, td {
     text-align:left;
+    font-weight:normal;
+}
+th {
+    vertical-align:middle;
 }
 td {
     vertical-align:top;
+}
+input, textarea, select, button {
+    margin:0;
+    padding:0;
+    border:0;
+    background:none;
+    font-size:100%;
+    font:inherit;
+}
+textarea { 
+    overflow:auto; 
+    resize:none;
 }
 label[for], button, input[type="button"], input[type="reset"], input[type="submit"] { 
     cursor:pointer; 
@@ -71,14 +91,6 @@ label[for], button, input[type="button"], input[type="reset"], input[type="submi
 button, input[type="button"], input[type="reset"], input[type="submit"] { 
     -webkit-appearance: button; 
     *overflow: visible;
-}
-textarea { 
-    overflow:auto; 
-    resize:none;
-}
-input, select, textarea, button {
-    border:0;
-    background:none;
 }
 button[disabled], input[disabled] { 
     cursor:default; 
@@ -140,7 +152,6 @@ html, body, td, input, textarea, select { font:16px Arial, sans-serif; color:#00
 /* link */
 a { color:#fff; text-decoration:none; }
 a:hover { text-decoration:none; }
-a:hover, a:active { outline:0; }
 
 
 /*---------------------------------------------------------------------------*/
